@@ -34,15 +34,51 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
-/* write all the steps invloved */
+1. Open Quartus Prime and create a new Verilog project.
+2. Write the Verilog code for the JK Flip-Flop and save the file.
+3. Compile the program and fix any syntax errors if present.
+4. Create a waveform/testbench file, apply different input combinations of J, K, and Clock.
+5. Run the simulation and verify the output with the JK Flip-Flop functional table.
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: SREE VARSHA D RegisterNumber: 212225040422
 */
+```
+input clk,
+input j,
+input k,
+output reg q,
+output reg qbar
+);
+
+always @(posedge clk) begin
+if (j == 0 && k == 0) begin
+    q <= q;
+    qbar <= qbar;
+end 
+else if (j == 0 && k == 1) begin
+    q <= 0;
+    qbar <= 1;
+end 
+else if (j == 1 && k == 0) begin
+    q <= 1;
+    qbar <= 0;
+end 
+else if (j == 1 && k == 1) begin
+    q <= ~q;
+    qbar <= ~qbar;
+end
+end
+
+endmodule
+```
 
 **RTL LOGIC FOR FLIPFLOPS**
+<img width="1456" height="818" alt="image" src="https://github.com/user-attachments/assets/46d6cfb8-71a7-4e2f-9b82-45564ecf5fb3" />
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+<img width="1463" height="823" alt="image" src="https://github.com/user-attachments/assets/e81223fe-f967-495c-b502-d1a4a816dcc9" />
 
 **RESULTS**
+Thus the JK flipflop is  executed successfully.
